@@ -11,8 +11,8 @@ const copy = async () => {
 
     const copyFilesRecursively = async (srcDir, destDir) => {
         try {
-            await mkdir(destDir);
             const srcDirents = await readdir(srcDir, { withFileTypes: true });
+            await mkdir(destDir);
 
             srcDirents.forEach(async (dirent) => {
                 if (dirent.isDirectory()) {
