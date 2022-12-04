@@ -10,4 +10,4 @@ const spawnChildProcess = async (args) => {
     const child = fork(childProcessPath, args);
 };
 
-spawnChildProcess(process.argv.slice(2));
+spawnChildProcess(['hello', 'student']);
