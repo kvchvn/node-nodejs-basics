@@ -13,6 +13,7 @@ const spawnChildProcess = async (args) => {
 
   const childProcess = cp.spawn('node', [filePath, ...args]);
 
+  process.stdin.pipe(childProcess.stdin);
   childProcess.stdout.pipe(process.stdout);
 };
 
