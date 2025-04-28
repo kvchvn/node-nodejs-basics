@@ -1,5 +1,23 @@
+import process from 'node:process';
+
 const parseArgs = () => {
-    // Write your code here 
+  let args = '';
+
+  const isKey = (keyOrValue) => keyOrValue.startsWith('--');
+
+  for(let keyOrValue of process.argv.slice(2)) {
+    if (isKey(keyOrValue)) {
+      if (args) {
+        args += ', ';
+      }
+
+      args += `${keyOrValue.slice(2)} is `;
+    } else {
+      args += keyOrValue;
+    }
+  }
+
+  console.log(args);
 };
 
 parseArgs();
